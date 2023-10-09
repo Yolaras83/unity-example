@@ -12,7 +12,11 @@ public class SpawnCoin : MonoBehaviour
     public bool canSpawn;
     public float destroy;
     public bool destroy2;
+<<<<<<< Updated upstream
     public Text CoinCounter;
+=======
+    public Text coinCounter;
+>>>>>>> Stashed changes
     public float CollectedCoins = -1f;
 
 
@@ -59,7 +63,11 @@ public class SpawnCoin : MonoBehaviour
             // Check if the collided object is the player
             Debug.Log("e");
             Destroy(GameObject.Find("Coin(Clone)"));
+<<<<<<< Updated upstream
             CoinCounter.text = CollectedCoins.ToString();
+=======
+            coinCounter.text = CollectedCoins.ToString();
+>>>>>>> Stashed changes
         }
     }
 }
