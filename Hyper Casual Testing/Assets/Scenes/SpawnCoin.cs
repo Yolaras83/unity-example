@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnCoin : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class SpawnCoin : MonoBehaviour
     public bool canSpawn;
     public float destroy;
     public bool destroy2;
+    public Text coinCounter;
+    public float CollectedCoins = -1f;
 
 
     // Start is called before the first frame update
@@ -52,9 +55,11 @@ public class SpawnCoin : MonoBehaviour
     {
         if (collision.gameObject.name == "Coin(Clone)") ;
         {
+            CollectedCoins = CollectedCoins + 1;
             // Check if the collided object is the player
             Debug.Log("e");
             Destroy(GameObject.Find("Coin(Clone)"));
+            coinCounter.text = CollectedCoins.ToString();
         }
     }
 }
