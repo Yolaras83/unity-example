@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Border
   - Border2
+  - Coin
   layers:
   - Default
   - TransparentFX

@@ -1531,7 +1531,7 @@ GameObject:
   - component: {fileID: 1909258543}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1680,6 +1680,7 @@ GameObject:
   - component: {fileID: 1949882346}
   - component: {fileID: 1949882345}
   - component: {fileID: 1949882348}
+  - component: {fileID: 1949882349}
   m_Layer: 0
   m_Name: Coin Spawner
   m_TagString: Untagged
@@ -1791,6 +1792,28 @@ MonoBehaviour:
   CoinGO: {fileID: 1258906518}
   canSpawn: 0
   destroy: 5
+  destroy2: 0
+--- !u!65 &1949882349
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949882342}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9659109, y: 1, z: 0.77328706}
+  m_Center: {x: -0.017044544, y: 0, z: -1.272583}
 --- !u!1 &2072631331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,7 +2005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2427918960045522112, guid: d452639a77272ef498b2175a5ddd6c1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.92
+      value: -9.96
       objectReference: {fileID: 0}
     - target: {fileID: 2427918960045522112, guid: d452639a77272ef498b2175a5ddd6c1d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2018,6 +2041,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6512280755857632205, guid: d452639a77272ef498b2175a5ddd6c1d, type: 3}
       propertyPath: m_Name
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512280755857632205, guid: d452639a77272ef498b2175a5ddd6c1d, type: 3}
+      propertyPath: m_TagString
       value: Coin
       objectReference: {fileID: 0}
     - target: {fileID: 7576238999112966446, guid: d452639a77272ef498b2175a5ddd6c1d, type: 3}
