@@ -10,6 +10,7 @@ public class SpawnCoin : MonoBehaviour
     public GameObject CoinGO;
     public bool canSpawn;
     public float destroy;
+    public bool destroy2;
 
 
     // Start is called before the first frame update
@@ -47,13 +48,13 @@ public class SpawnCoin : MonoBehaviour
         Destroy(copy, destroy);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.name == "Coin(Clone)") ;
         {
             // Check if the collided object is the player
-            Destroy(gameObject);
-            Debug.Log("NIGGGGGGAAAAASSSS");
+            Debug.Log("e");
+            Destroy(GameObject.Find("Coin(Clone)"));
         }
     }
 }
