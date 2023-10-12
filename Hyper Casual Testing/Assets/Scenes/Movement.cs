@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
     {
         if (other.collider.CompareTag("Border"))
         {
-            transform.localPosition = new Vector3(4.1f, -1, player.position.z);
+            transform.localPosition = new Vector3(-1.3f, -1, player.position.z);
         }
 
         if (other.collider.CompareTag("Border2"))
