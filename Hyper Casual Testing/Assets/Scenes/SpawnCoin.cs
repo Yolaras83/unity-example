@@ -53,7 +53,7 @@ public class SpawnCoin : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.name == "Coin(Clone)") ;
+        if (collision.gameObject.name == "Coin(Clone)") 
         {
             CollectedCoins = CollectedCoins + 1;
             // Check if the collided object is the player
