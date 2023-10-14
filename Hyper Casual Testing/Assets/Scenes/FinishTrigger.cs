@@ -29,7 +29,7 @@ public class FinishTrigger : MonoBehaviour
 
     public void FixedUpdate()
     {
-        rb.AddForce(0f, 0f, 10f);
+       
     }
 
     public void ShowUIAfterWinAnimation()
