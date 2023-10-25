@@ -19,6 +19,7 @@ public class SpawnCoin : MonoBehaviour
     public Animator anim;
     public Movement PMovement;
     public GameObject CoinSpawner;
+    public GameObject Banana;
 
 
     // Start is called before the first frame update
@@ -44,16 +45,28 @@ public class SpawnCoin : MonoBehaviour
         // Wait for the specified delay
         yield return new WaitForSeconds(Delay);
 
+        float randomValue = Random.Range(0f, 1f);
+
         // Randomly choose a position within the specified range
         Vector3 spawnPosition = new Vector3(Random.Range(2.26f, 6.74f), player.position.y, player.position.z + 10);
 
         // Instantiate the coin at the chosen position
-        var copy = Instantiate(CoinGO, spawnPosition, Quaternion.identity);
+        if (randomValue > 0.5f)
+        {
+            var copy = Instantiate(CoinGO, spawnPosition, Quaternion.identity);
+
+            Destroy(copy, destroy);
+        }
 
         // Allow spawning again
         canSpawn = true;
 
-        Destroy(copy, destroy);
+        if (randomValue <= 0.5f)
+        {
+            var copy2 = Instantiate(Banana, spawnPosition, Quaternion.identity);
+    
+        Destroy(copy2, destroy);
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
