@@ -19,7 +19,7 @@ public class FinishTrigger : MonoBehaviour
     public void OnTriggerEnter(Collider collision)
     {
         if(collision.GetComponent<BoxCollider>().CompareTag("Finish"))
-            {
+        {
             CoinSpawner.SetActive(false);
             PMovement.enabled = false;
             anim.SetBool("Run", false);

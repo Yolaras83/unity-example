@@ -37,6 +37,4 @@ public class Movement : MonoBehaviour
             transform.localPosition = new Vector3(4.1f, -1, player.position.z);
         }
     }
-
-
 }

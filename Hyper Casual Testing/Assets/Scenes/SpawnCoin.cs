@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class SpawnCoin : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class SpawnCoin : MonoBehaviour
     public bool destroy2;
     public Text coinCounter;
     public float CollectedCoins = -1f;
+    public Animator anim;
+    public Movement PMovement;
+    public GameObject CoinSpawner;
 
 
     // Start is called before the first frame update
@@ -53,7 +58,7 @@ public class SpawnCoin : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.name == "Coin(Clone)") 
+        if (collision.gameObject.name == "Coin(Clone)")
         {
             CollectedCoins = CollectedCoins + 1;
             // Check if the collided object is the player
@@ -61,5 +66,21 @@ public class SpawnCoin : MonoBehaviour
             Destroy(GameObject.Find("Coin(Clone)"));
             coinCounter.text = CollectedCoins.ToString();
         }
+
+        if (collision.GetComponent<BoxCollider>().CompareTag("Banana"))
+        {
+            StartCoroutine(Respawn());
+        }
+    }
+
+    public IEnumerator Respawn()
+    {
+        canSpawn = false;
+        PMovement.enabled = false;
+        CollectedCoins = 0f;
+        anim.SetBool("Lose", true);
+        coinCounter.text = CollectedCoins.ToString();
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
