@@ -19,6 +19,7 @@ public class SpawnCoin : MonoBehaviour
     public Animator anim;
     public Movement PMovement;
     public GameObject CoinSpawner;
+    public GameObject Banana;
 
 
     // Start is called before the first frame update
@@ -49,11 +50,13 @@ public class SpawnCoin : MonoBehaviour
 
         // Instantiate the coin at the chosen position
         var copy = Instantiate(CoinGO, spawnPosition, Quaternion.identity);
+        var copy2 = Instantiate(Banana, spawnPosition, Quaternion, identity);
 
         // Allow spawning again
         canSpawn = true;
 
         Destroy(copy, destroy);
+        Destroy(copy2, destroy);
     }
 
     private void OnTriggerEnter(Collider collision)
