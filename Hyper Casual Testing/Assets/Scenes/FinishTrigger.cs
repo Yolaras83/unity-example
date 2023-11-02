@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FinishTrigger : MonoBehaviour
 {
+    public GameObject Joystick;
     public GameObject CoinSpawner;
     public Movement PMovement;
     public Rigidbody rb;
@@ -20,6 +21,7 @@ public class FinishTrigger : MonoBehaviour
     {
         if(collision.GetComponent<BoxCollider>().CompareTag("Finish"))
         {
+            Joystick.SetActive(false);
             CoinSpawner.SetActive(false);
             PMovement.enabled = false;
             anim.SetBool("Run", false);

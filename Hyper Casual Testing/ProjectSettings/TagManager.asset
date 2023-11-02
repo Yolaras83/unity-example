@@ -15,7 +15,7 @@ TagManager:
   - Tree
   - Water
   - UI
-  - 
+  - UI2
   - 
   - 
   - 
@@ -42,6 +42,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: New Layer 2
+    uniqueID: 149502691
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 2426992123
     locked: 0

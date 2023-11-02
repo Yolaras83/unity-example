@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 
 public class SpawnCoin : MonoBehaviour
@@ -14,12 +15,16 @@ public class SpawnCoin : MonoBehaviour
     public bool canSpawn;
     public float destroy;
     public bool destroy2;
-    public Text coinCounter;
+    public TMP_Text coinCounter;
     public float CollectedCoins = -1f;
     public Animator anim;
     public Movement PMovement;
     public GameObject CoinSpawner;
     public GameObject Banana;
+    public ParticleSystem MoneyCollect;
+    public GameObject ParticleObj;
+    public Transform Particle;
+    public Transform ParticleTp;
 
 
     // Start is called before the first frame update
@@ -45,29 +50,45 @@ public class SpawnCoin : MonoBehaviour
         // Wait for the specified delay
         yield return new WaitForSeconds(Delay);
 
+        float randomValue = Random.Range(0f, 1f);
+
         // Randomly choose a position within the specified range
         Vector3 spawnPosition = new Vector3(Random.Range(2.26f, 6.74f), player.position.y, player.position.z + 10);
 
         // Instantiate the coin at the chosen position
-        var copy = Instantiate(CoinGO, spawnPosition, Quaternion.identity);
-        var copy2 = Instantiate(Banana, spawnPosition, Quaternion, identity);
+        if (randomValue > 0.3f)
+        {
+            var copy = Instantiate(CoinGO, spawnPosition, Quaternion.identity);
+
+            var copy3 = Instantiate(ParticleObj, spawnPosition, Quaternion.identity);
+
+            Destroy(copy, destroy);
+            Destroy(copy3, destroy);
+        }
 
         // Allow spawning again
         canSpawn = true;
 
-        Destroy(copy, destroy);
+        if (randomValue <= 0.3f)
+        {
+            var copy2 = Instantiate(Banana, spawnPosition, Quaternion.identity);
+    
         Destroy(copy2, destroy);
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.name == "Coin(Clone)")
         {
+            GameObject.Find("ParticleSystem(Clone)").transform.position = GameObject.Find("Coin(Clone)").transform.position;
+
             CollectedCoins = CollectedCoins + 1;
             // Check if the collided object is the player
             Debug.Log("e");
             Destroy(GameObject.Find("Coin(Clone)"));
             coinCounter.text = CollectedCoins.ToString();
+            GameObject.Find("ParticleSystem(Clone)").GetComponent<ParticleSystem>().Play();
         }
 
         if (collision.GetComponent<BoxCollider>().CompareTag("Banana"))
