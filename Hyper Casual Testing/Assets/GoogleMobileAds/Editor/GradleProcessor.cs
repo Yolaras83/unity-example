@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using UnityEditor.Android;
-
 using GoogleMobileAds.Editor;
 
 public class GradleProcessor : IPostGenerateGradleAndroidProject
